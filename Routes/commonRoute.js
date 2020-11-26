@@ -8,8 +8,6 @@ router.get('/',async(req,res) => {
 })
 
 router.post('/',async(req,res) => {
-   // console.log("hitted");
-    console.log(req.body);
     linksController.postLink(req,res);
 })
 

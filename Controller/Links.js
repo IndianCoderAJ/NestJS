@@ -93,7 +93,6 @@ links.deleteLink = async(req,res) => {
 
 links.redirectLink = async(req,res) => {
     try{
-        console.log("req.params.code",req.params.code);
      let url = await LinksModule.findOne({urlHash:req.params.code});
      console.log(url);
      if(url){
