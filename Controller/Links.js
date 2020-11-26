@@ -7,7 +7,6 @@ const isValidURL = require('../utils/is_url');
 links.getLink = async(req,res) => {
     try{
        let linksData = await  LinksModule.find({},{Date:0,_id:0});
-       
        return res.status(200).json(linksData);
     }catch(err){
         console.log(err);
@@ -94,7 +93,6 @@ links.deleteLink = async(req,res) => {
 links.redirectLink = async(req,res) => {
     try{
      let url = await LinksModule.findOne({urlHash:req.params.code});
-     console.log(url);
      if(url){
          return res.status(302).json({location:url.OriginalURL});
        // return res.redirect(url.OriginalURL);
