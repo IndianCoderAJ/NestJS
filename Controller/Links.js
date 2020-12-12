@@ -46,7 +46,7 @@ links.putLink = async(req, res) => {
     try {
         if (isValidURL(req.body.url)) {
             let urlHash = short.generate();
-            let getResult = await LinksModule.findOneAndUpdate({ OriginalURL: req.body.url }, { OriginalURL: req.body.url, urlHash: urlHash, shortUrl: `https://localhots:3000/${urlHash}` });
+            let getResult = await LinksModule.findOneAndUpdate({ OriginalURL: req.body.url }, { OriginalURL: req.body.url, urlHash: urlHash, shortUrl: `http://localhost:3000/${urlHash}` });
             if (getResult) {
                 let UpdateResult = await LinksModule.findOne({ OriginalURL: req.body.url })
                 return res.status(200).json({

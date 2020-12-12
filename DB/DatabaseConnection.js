@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
         console.log('db is connected....');
     })
     .catch(err => {
-        console.log('db is not connected', +err);
+        console.log('db is not connected', err);
 });
 
 }
