@@ -94,8 +94,8 @@ links.redirectLink = async(req, res) => {
     try {
         let url = await LinksModule.findOne({ urlHash: req.params.code });
         if (url) {
-            return res.status(302).json({ location: url.OriginalURL });
-            // return res.redirect(url.OriginalURL);
+            //return res.status(302).json({ location: url.OriginalURL });
+             return res.redirect(url.OriginalURL);
         } else {
             return res.status(404).json({ Error: 'No url found' });
         }
