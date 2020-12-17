@@ -105,4 +105,19 @@ links.redirectLink = async(req, res) => {
     }
 }
 
+links.updateLink = async(req,res) => {
+
+    hashURL = req.body.harshURl;
+    //console.log("hitted");
+    let isAvailable =  await LinksModule.findOne({urlHash:hashURL});
+    console.log(isAvailable);
+    if(isAvailable){
+      let updateURL = await LinksModule.findOneAndUpdate({urlHash:hashURL},{OriginalURL:req.body.url}); 
+      updateURL =  await LinksModule.findOne({urlHash:hashURL});
+      return res.status(200).json({updateURL});
+    }else{
+        return res.status(400).json({message:"URL not found.."})
+    }
+}
+
 module.exports = links;

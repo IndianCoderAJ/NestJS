@@ -18,6 +18,11 @@ router.put('/', async(req, res) => {
 router.delete('/', async(req, res) => {
     linksController.deleteLink(req, res);
 })
+router.post('/update', async(req, res) => {
+    linksController.updateLink(req, res);
+})
+
+
 
 
 
